@@ -1,0 +1,27 @@
+{
+  "name": "movie-renatal-system-mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yonas-t-a/movie-Renatal-System-MVC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yonas-t-a/movie-Renatal-System-MVC/issues"
+  },
+  "homepage": "https://github.com/yonas-t-a/movie-Renatal-System-MVC#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
