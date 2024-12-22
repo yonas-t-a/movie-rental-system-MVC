@@ -20,7 +20,8 @@
   "homepage": "https://github.com/yonas-t-a/movie-Renatal-System-MVC#readme",
   "dependencies": {
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
