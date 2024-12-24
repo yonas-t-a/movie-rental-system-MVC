@@ -1,17 +1,4 @@
-const testMovie = [
-    {
-        "id": 1,
-        "title": "movie_test_1",
-        "gener": "test_gener_1",
-        "release_year": 2024
-    },
-    {
-        "id": 2,
-        "title": "movie_test_1",
-        "gener": "test_gener_2",
-        "release_year": 2024
-    }
-]
+
 
 export function getMovies(req, res ){
     res.json(testMovie)
