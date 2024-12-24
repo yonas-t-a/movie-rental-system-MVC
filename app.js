@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import setUpDatabase from './database.js';
+
 import rental from './routers/api/rentalApi.js'
 import movie from './routers/api/movieApi.js'
 import user from './routers/api/userApi.js'
@@ -22,6 +24,8 @@ const PORT = process.env.PORT || 8000;
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 app.use(express.static(staticFileLocation))
+
+setUpDatabase();
 
 app.use("/", root)
 app.use('/rental', rental)
