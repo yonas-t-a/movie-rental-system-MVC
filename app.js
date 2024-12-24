@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
-import setUpDatabase from './database.js';
+import {setUpDatabase} from './database.js';
 
 import rental from './routers/api/rentalApi.js'
 import movie from './routers/api/movieApi.js'
