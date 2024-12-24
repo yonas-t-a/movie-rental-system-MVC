@@ -5,7 +5,7 @@ import {fileURLToPath} from 'url'
 import {dirname, join} from 'path'
 dotenv.config()
 
-const pool = mysql.createPool({
+export const pool = mysql.createPool({
     host: process.env.MySQL_HOST,
     user: process.env.MySQL_USER,
     password: process.env.MySQL_PASSWORD,
@@ -26,7 +26,7 @@ const executeSQLFile = async (filePath) => {
 const __fileName = fileURLToPath(import.meta.url)
 const __dirname = dirname(__fileName)
 
-const setUpDatabase = async () => {
+export const setUpDatabase = async () => {
     try {
         console.log('Seting up database ...')
 
@@ -52,5 +52,3 @@ const setUpDatabase = async () => {
         pool.end()
     }
 }
-
-export default setUpDatabase;
