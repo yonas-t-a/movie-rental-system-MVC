@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS rentals(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    movie_id INT NOT NULL,
+    rental_date DATE NOT NULL,
+    return_date DATE
+) AUTO_INCREMENT = 200000000;
