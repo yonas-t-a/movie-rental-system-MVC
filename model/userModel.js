@@ -1,4 +1,4 @@
-import { pool } from "../database";
+import { pool } from "../database.js";
 
 const UserModel = {
     insertUser: async (name, email) => {
@@ -28,11 +28,7 @@ const UserModel = {
         }
     },
     
-    updateUser: async (
-        id, 
-        name  = await pool.query('SELECT name FROM user WHERE id=?', id) , 
-        email = await pool.query('SELECT email FROM user WHERE email=?', email) 
-    )=>{
+    updateUser: async (id, name  , email)=>{
         const query = 'UPDATE user SET name=?, email=? WHERE id=?'
         try {
             await pool.query(query, [name, email, id])
@@ -49,3 +45,5 @@ const UserModel = {
         }
     },
 }
+
+export default UserModel
