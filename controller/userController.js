@@ -43,8 +43,8 @@ export async function updateUser (req, res){
 export async function deleteUser (req, res){
     const id = req.params.id;
     try {
-        await UserModel.deleteUser(id)
-        res.status(200).send('The user is sucessfully delated')
+         await UserModel.deleteUser(id)
+         res.status(200).send('The user is sucessfully delated')
     } catch (error) {
         res.status(500).send("Error While delating the user with the given Id")
     }
