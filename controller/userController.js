@@ -9,7 +9,7 @@ export async function getUsers (req, res){
     }
 }
 export async function getUserID   (req, res){
-    const {id} = req.params.id
+    const id = req.params.id
     try {
         const result = await UserModel.getUserbyId(id);
         res.status(200).json(result)
@@ -27,7 +27,7 @@ export async function createUser (req, res){
    }
 }
 export async function updateUser (req, res){
-    const {id}=req.params.id;
+    const id=req.params.id;
     try {
         const {name, email} = req.body;
 
@@ -41,7 +41,7 @@ export async function updateUser (req, res){
     }
 }
 export async function deleteUser (req, res){
-    const {id} = req.params.id;
+    const id = req.params.id;
     try {
         
     } catch (error) {
