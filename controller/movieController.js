@@ -35,6 +35,7 @@ export async function updateMovie(req, res){
 
     try {
         await MovieModel.updateMovie(id, updatedTitle, updatedGenre, updatedReleaseYear);
+        res.status(200).send("Movie sucessfully updated")
     } catch (error) {
         res.status(500).send('Error in updating the Movie')
     }
@@ -43,6 +44,7 @@ export async function deleteMovie(req, res){
     const id = req.params.id;
     try {
         await MovieModel.deleteMovie(id)
+        res.status(200).send("Movie sucessfully deleted")
     } catch (error) {
         res.status(500).send('Error in Delating the Movie')
     }
