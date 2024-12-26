@@ -9,7 +9,7 @@ export async function getMovies(req, res ){
     }
 }
 export async function getMovieById(req, res){
-    const {id} = req.params.id;
+    const id = req.params.id;
     try {
         const result = await MovieModel.getMovieById(id);
     } catch (error) {
@@ -26,7 +26,7 @@ export async  function createMovie(req, res){
 
 }
 export async function updateMovie(req, res){
-    const {id} = req.params.id
+    const id = req.params.id
     const {title, genre, release_year} = req.body;
 
     const updatedTitle = title || MovieModel.movieTitle(id)
@@ -40,7 +40,7 @@ export async function updateMovie(req, res){
     }
 }
 export async function deleteMovie(req, res){
-    const {id} = req.params.id;
+    const id = req.params.id;
     try {
         await MovieModel.deleteMovie(id)
     } catch (error) {
