@@ -1,27 +1,49 @@
+import MovieModel from "../model/movieModel.js"
 
-
-export function getMovies(req, res ){
-    res.json(testMovie)
-}
-export function getMovieById(req, res){
-    const movie = testMovie.find((movie)=> movie.id === parseInt(req.params.id))
-    if (!movie){
-        res.status(406).json({'message':"No movie with the give id"})
+export async function getMovies(req, res ){
+    try {
+        const result = await MovieModel.getAllMovie();
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(500).send('Error in Fetching all the Movies')
     }
-    res.json(movie)
 }
-export function createMovie(req, res){
-    res.json(
-        {"message": "Movies feuter is under construction"}
-    )
+export async function getMovieById(req, res){
+    const {id} = req.params.id;
+    try {
+        const result = await MovieModel.getMovieById(id);
+    } catch (error) {
+        res.status(500).send('Error in Fetching the Movie with ID')
+    }
 }
-export function updateMovie(req, res){
-    res.json(
-        {"message": "Movies feuter is under construction"}
-    )
+export async  function createMovie(req, res){
+    const {title, genre, release_year} = req.body;
+    try {
+        await MovieModel.insertMovie(title, genre, release_year)
+    } catch (error) {
+        res.status(500).send('Error in insering the umovie into the database')
+    }
+
 }
-export function deleteMovie(req, res){
-    res.json(
-        {"message": "Movies feuter is under construction"}
-    )
+export async function updateMovie(req, res){
+    const {id} = req.params.id
+    const {title, genre, release_year} = req.body;
+
+    const updatedTitle = title || MovieModel.movieTitle(id)
+    const updatedGenre = genre || MovieModel.movieGenre(id)
+    const updatedReleaseYear = release_year || MovieModel.movieReleaseYear(id)
+
+    try {
+        await MovieModel.updateMovie(id, updatedTitle, updatedGenre, updatedReleaseYear);
+    } catch (error) {
+        res.status(500).send('Error in updating the Movie')
+    }
+}
+export async function deleteMovie(req, res){
+    const {id} = req.params.id;
+    try {
+        await MovieModel.deleteMovie(id)
+    } catch (error) {
+        res.status(500).send('Error in Delating the Movie')
+    }
 }
